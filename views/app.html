@@ -1,11 +1,14 @@
-@{meta('Angular.js routing', 'description', 'keywords')}
-
 <!-- /app/css/ -->
 @{ngStyle('app')}
 
 <!-- /app/controllers/ -->
-@{ngController('home', 'users', 'products')}
-        
-<div ng-view>
-    <!-- VIEW -->
-</div>
+@{ngController('home', 'layouts')}
+
+@{ngTemplate('header')}
+@{ngTemplate('content')}
+@{ngTemplate('menu')}
+
+
+<body ng-view>
+<!-- VIEW -->
+</body>

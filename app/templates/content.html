@@ -1,0 +1,57 @@
+<div class="bs-docs-section" ng-repeat="item in items | filter:$root.parentNode">
+    <h1 id="{{item.hash}}" class="page-header">{{item.title}}</h1>
+
+    <p class="lead">{{item.description}}</p>
+
+    <div class="bs-callout bs-callout-danger" ng-if="item.danger">
+        <h4>{{item.danger.title}}</h4>
+
+        <p>{{item.danger.message}}</p>
+    </div>
+    <div class="bs-callout bs-callout-info" ng-if="item.info">
+        <h4>{{item.info.title}}</h4>
+
+        <p>{{item.info.message}}</p>
+    </div>
+
+    <div ng-if="item.code">
+        <div class="bs-example" ng-if="sub_item.preview">
+            {{item.preview}}
+        </div>
+        <div class="zero-clipboard"><span class="btn-clipboard">Copy</span></div>
+        <div class="highlight">
+                        <pre>
+                            <code class="html">
+                                {{item.code}}
+                            </code>
+                        </pre>
+        </div>
+    </div>
+
+    <div ng-repeat="sub_item in item.children | filter:$root.childNode">
+        <h3 id="{{sub_item.hash}}">{{sub_item.title}}</h3>
+
+        <p>{{sub_item.description}}</p>
+
+        <div class="bs-callout bs-callout-danger" ng-if="sub_item.danger">
+            <h4>{{sub_item.danger.title}}</h4>
+
+            <p>{{sub_item.danger.message}}</p>
+        </div>
+        <div class="bs-callout bs-callout-info" ng-if="sub_item.info">
+            <h4>{{sub_item.info.title}}</h4>
+
+            <p>{{sub_item.info.message}}</p>
+        </div>
+
+        <div ng-if="sub_item.code">
+            <div class="bs-example" ng-if="sub_item.preview">
+                {{sub_item.preview}}
+            </div>
+            <div class="zero-clipboard"><span class="btn-clipboard">Copy</span></div>
+            <div class="highlight">
+                <pre><code class="html">{{sub_item.code}}</code></pre>
+            </div>
+        </div>
+    </div>
+</div>

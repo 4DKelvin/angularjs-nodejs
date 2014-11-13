@@ -1,0 +1,17 @@
+<div ng-spy="affix" data-offset-top="300" data-offset-bottom="0"
+     class="bs-docs-sidebar hidden-print hidden-xs hidden-sm"
+     role="complementary">
+    <ul class="nav bs-docs-sidenav">
+        <li ng-repeat="item in items" class="{{$root.parentNode==item.hash?'active':''}}">
+            <a ng-click="$root.parentNode=item.hash" href="javascript:void(0);">{{item.title}}</a>
+            <ul class="nav" ng-if="item.children">
+                <li ng-repeat="sub_item in item.children" class="{{$root.childNode==sub_item.hash?'active':''}}">
+                    <a ng-click="$root.childNode=sub_item.hash" href="javascript:void(0);">{{sub_item.title}}</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <a class="back-to-top" href="javascript:void(0);" ng-click="$root.parentNode='';$root.childNode=''">
+        返回筛选
+    </a>
+</div>
